@@ -9,10 +9,6 @@ public class Node {
 
     // *** Konstruktor (optional) ***
 
-    public Node() {
-        this.todoText = todoText;
-        this.next = next;
-    }
 
 
     // *** Getter- & Setter ***
@@ -22,7 +18,7 @@ public class Node {
     }
 
     public String getTodoText() {
-        return todoText;
+        return this.todoText;
     }
 
     public void setNext(Node next) {
@@ -30,6 +26,6 @@ public class Node {
     }
 
     public Node getNext() {
-        return next;
+        return this.next;
     }
 }

@@ -20,19 +20,42 @@ public class TodoLinkedList {
     public void appendTodoText(String todoText) {
         Node newNode = new Node();
         newNode.setTodoText(todoText);
-
-        Node currentNode = first;
-        currentNode = currentNode.getNext();
-
-        currentNode.setNext(newNode);
-        newNode.setNext(last);
-
+        //Fall1: lista je prazna
+        if(first == null){
+            first = newNode;
+            last  = newNode;
+        }
+        // Fall2: ako ima jedan ili vise elemenata
+        else
+        {
+            last.setNext(newNode); // connection between nodes
+            last = newNode;        //and then we claim it as a new node
+        }
 
     }
 
-
     public void deleteLastTodoText() {
-        // TODO: Implementierung vervollständigen
+        //Fall1: Liste ist leer
+        if(first == null){
+            return;
+        }
+        //Fall2: Ein Element
+        else if(first == last){
+            first = null;
+            last = null;
+        }
+        else
+        {
+              Node prevNode = first;
+             //bis zum vorletzten Knoten weiter hupfen
+              while(prevNode.getNext() != last)
+                  prevNode = prevNode.getNext();
+
+                  prevNode.setNext(null);
+                  last = prevNode;
+
+        }
+
     }
 
     public String getTodoTextAtIndex(int index) {
